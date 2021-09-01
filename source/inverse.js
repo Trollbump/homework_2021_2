@@ -11,19 +11,15 @@ const inverse = (arr, num = 0) => {
     if (!Array.isArray(arr) || typeof num !== 'number') {
         return null;
     }
-    const arr_cp = arr.slice();
+    const arr_cp = [...arr];
 
-    if (num === 0) {
-        return arr_cp.reverse();
+    if (num !== 0) {
+        const second_arr_part = arr_cp.splice(num);
+        if (num > 0) {
+            return arr_cp.concat(second_arr_part.reverse());
+        } else {
+            return arr_cp.reverse().concat(second_arr_part);
+        }
     }
-
-    if (num > 0) {
-        const arr_reversed = arr_cp.splice(num, arr_cp.length);
-        arr_reversed.reverse();
-        return arr_cp.concat(arr_reversed);
-    } else {
-        const arr_reversed = arr_cp.splice(0, arr_cp.length + num);
-        arr_reversed.reverse();
-        return arr_reversed.concat(arr_cp);
-    }
+    return arr_cp.reverse();
 };
