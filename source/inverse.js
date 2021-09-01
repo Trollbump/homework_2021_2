@@ -8,7 +8,7 @@
  */
 
 const inverse = (arr, num = 0) => {
-    if (!Array.isArray(arr) || typeof num !== 'number') {
+    if (!Array.isArray(arr) || typeof num !== 'number' || isNaN(num)) {
         return null;
     }
     const arr_cp = [...arr];

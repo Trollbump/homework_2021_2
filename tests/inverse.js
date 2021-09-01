@@ -50,6 +50,7 @@ QUnit.module('Тестируем функцию inverse', function () {
     QUnit.test('Функция возвращает null при некорректных аргументах', function (assert) {
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], 'abc'), null);
 		assert.deepEqual(inverse(228, 1337), null);
+		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], NaN), null);
     });
 
     QUnit.test('Функция корректно работает без второго аргумента и со вторым аргументом равным 0', function (assert) {
