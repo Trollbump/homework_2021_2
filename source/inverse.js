@@ -11,15 +11,14 @@ const inverse = (arr, num = 0) => {
     if (!Array.isArray(arr) || typeof num !== 'number' || isNaN(num)) {
         return null;
     }
-    const arr_cp = [...arr];
+    const arrCopy = [...arr];
 
     if (num !== 0) {
-        const second_arr_part = arr_cp.splice(num);
+        const secondArrPart = arrCopy.splice(num);
         if (num > 0) {
-            return arr_cp.concat(second_arr_part.reverse());
-        } else {
-            return arr_cp.reverse().concat(second_arr_part);
+            return arrCopy.concat(secondArrPart.reverse());
         }
+        return arrCopy.reverse().concat(secondArrPart);
     }
-    return arr_cp.reverse();
+    return arrCopy.reverse();
 };
